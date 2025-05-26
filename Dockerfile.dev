@@ -1,0 +1,21 @@
+FROM node:20-alpine
+
+# 필수 패키지 설치 (Electron 빌드용)
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    git \
+    bash
+
+# 작업 디렉토리 설정
+WORKDIR /workspace
+
+# npm 업데이트 (Node 20과 호환되는 버전)
+RUN npm install -g npm@10
+
+# 포트 노출
+EXPOSE 5173 9229
+
+# 기본 명령어
+CMD ["bash"]

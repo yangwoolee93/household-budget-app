@@ -1,177 +1,91 @@
-# 💰 Household Budget App
+# 💰 가계부 앱 프로젝트
 
-> 간단하고 직관적인 가계부 앱 - 내 지출을 한눈에!
+> 바이브 코딩으로 만드는 심플하고 실용적인 가계부 앱
 
-## 🎯 프로젝트 목적
-
-- **개인 재정 관리**: 일상 지출을 쉽게 기록하고 추적
-- **데이터 소유권**: 로컬 데이터베이스로 개인정보 보호
-- **크로스 플랫폼**: 데스크톱 → 모바일 확장 가능한 구조
-- **학습 목적**: 최신 기술 스택 실습 및 포트폴리오 구축
-
-## 🚀 기술 스택 (확정)
-
-### 🖥️ 데스크톱 앱 (로컬 전용)
-
-- **Electron** - 크로스플랫폼 데스크톱 앱
-- **React** + **TypeScript** - 타입 안전성과 컴포넌트 기반 개발
-- **Zustand** - 초경량 상태 관리 (🐻 곰돌이와 함께!)
-- **Tailwind CSS** - 빠른 스타일링
-- **Shadcn/ui** - 복사-붙여넣기 방식 UI 컴포넌트
-
-### 🗄️ 데이터베이스 (서버 없음!)
-
-- **SQLite** + **better-sqlite3** - 로컬 파일 기반 DB
-- **프론트엔드에서 직접 DB 접근** - 별도 백엔드 서버 불필요!
-
-### 🛠️ 개발 도구
-
-- **Vite** - 빠른 개발 서버
-- **ESLint + Prettier** - 코드 품질 관리
-- **Recharts** - React 친화적 차트 라이브러리
-
-## 📋 핵심 기능 (세분화된 페이즈)
-
-### Phase 1A: 기본 구조 🏗️
-
-- [ ] **지출 기록 기능** - 금액, 설명, 날짜 입력
-- [ ] **카테고리 분류** - 기본 카테고리로 지출 분류
-- [ ] **다크모드** - 테마 토글 기능
-
-### Phase 1B: 기본 관리 📝
-
-- [ ] 지출 목록 표시
-- [ ] 지출 수정/삭제
-- [ ] 카테고리 추가/삭제
-
-### Phase 2A: 수입 관리 💰
-
-- [ ] 수입 기록 기능
-- [ ] 수입/지출 구분 표시
-- [ ] 잔액 계산
-
-### Phase 2B: 기본 통계 📊
-
-- [ ] 월별 수입/지출 합계
-- [ ] 카테고리별 지출 분석
-- [ ] 간단한 파이 차트
-
-### Phase 3A: 고급 통계 📈
-
-- [ ] 월별 트렌드 차트
-- [ ] 주간/연간 통계
-- [ ] 지출 패턴 분석
-
-### Phase 3B: 사용성 개선 ✨
-
-- [ ] 검색 및 필터링
-- [ ] 데이터 내보내기 (CSV)
-- [ ] 키보드 단축키
-
-### Phase 4: 고급 기능 🚀
-
-- [ ] 예산 설정 및 알림
-- [ ] 반복 거래 설정
-- [ ] 데이터 백업/복원
-
-### Phase 5: 모바일 확장 📱
-
-- [ ] React Native 앱
-- [ ] 데이터 동기화
-- [ ] 푸시 알림
-
-## 🏗️ 프로젝트 구조 (간소화)
+## 📁 프로젝트 구조
 
 ```
 household-budget-app/
-├── src/
-│   ├── components/       # React 컴포넌트
-│   ├── stores/           # Zustand 스토어
-│   ├── lib/              # 유틸리티 함수
-│   ├── types/            # TypeScript 타입
-│   └── main.tsx          # 앱 진입점
-├── electron/             # Electron 메인 프로세스
-├── public/               # 정적 파일
-└── database/             # SQLite 데이터베이스 파일
+├── docs/                    # 📚 프로젝트 문서들
+│   ├── README.md           # 상세한 프로젝트 개요
+│   ├── GETTING_STARTED.md  # 🎯 개발 시작 가이드
+│   ├── VIBE_CODING_RULES.md # 바이브 코딩 원칙
+│   ├── ZUSTAND_GUIDE.md    # Zustand 사용법
+│   ├── TODO.md             # 개발 진행 상황
+│   └── TECH_STACK_DECISION.md # 기술 스택 선택 이유
+└── budget-app/             # 🚀 실제 앱 개발 폴더 (생성 예정)
+    ├── src/
+    ├── package.json
+    └── ...
 ```
 
-## 🎨 바이브 코딩 룰
+## 🚀 빠른 시작
 
-### 개발 철학
+### 1️⃣ 문서 먼저 읽기
+
+**[📋 docs/GETTING_STARTED.md](./docs/GETTING_STARTED.md)** - 30분 만에 첫 번째 기능 완성!
+
+### 2️⃣ 바로 개발 시작 (도커 사용) 🐳
+
+```bash
+# 도커 환경 시작
+docker-compose up -d
+
+# 컨테이너 접속
+docker-compose exec app bash
+
+# 프로젝트 생성 (컨테이너 내부에서)
+npm create electron-vite@latest budget-app -- --template react-ts
+cd budget-app
+npm install
+npm install zustand better-sqlite3 @types/better-sqlite3 lucide-react date-fns
+npm install -D tailwindcss postcss autoprefixer
+
+# 개발 서버 시작
+npm run dev
+```
+
+### 2️⃣-B 로컬 환경에서 시작 (도커 없이)
+
+```bash
+# 현재 폴더에서 앱 생성
+npm create electron-vite@latest budget-app -- --template react-ts
+cd budget-app
+
+# 의존성 설치
+npm install
+npm install zustand better-sqlite3 @types/better-sqlite3 lucide-react date-fns
+npm install -D tailwindcss postcss autoprefixer
+
+# 개발 서버 시작
+npm run dev
+```
+
+## 🎯 프로젝트 목표
+
+- **실용적인 가계부 앱** - 실제로 사용하고 싶은 앱 만들기
+- **바이브 코딩 실습** - 빠른 프로토타이핑과 점진적 개선
+- **최신 기술 스택** - Electron + React + Zustand + SQLite
+
+## 📚 주요 문서
+
+| 문서                                                       | 설명                                 |
+| ---------------------------------------------------------- | ------------------------------------ |
+| [📋 GETTING_STARTED.md](./docs/GETTING_STARTED.md)         | **지금 바로 시작하기** - 30분 가이드 |
+| [🐳 DOCKER_SETUP.md](./docs/DOCKER_SETUP.md)               | **도커 환경 설정** - 환경 통일       |
+| [📖 README.md](./docs/README.md)                           | 프로젝트 상세 개요                   |
+| [⚡ VIBE_CODING_RULES.md](./docs/VIBE_CODING_RULES.md)     | 바이브 코딩 철학과 규칙              |
+| [🐻 ZUSTAND_GUIDE.md](./docs/ZUSTAND_GUIDE.md)             | Zustand 상태 관리 가이드             |
+| [✅ TODO.md](./docs/TODO.md)                               | 개발 진행 상황 체크리스트            |
+| [🛠️ TECH_STACK_DECISION.md](./docs/TECH_STACK_DECISION.md) | 기술 스택 선택 이유                  |
+
+## 🌟 바이브 코딩 철학
 
 - **빠른 프로토타이핑** > 완벽한 설계
 - **실용적 선택** > 이론적 완벽함
 - **점진적 개선** > 한번에 완성
 - **재미있게 코딩** > 스트레스 받으며 개발
 
-### 코딩 스타일
-
-- 함수명은 **직관적**이고 **읽기 쉽게**
-- 주석보다는 **자명한 코드** 작성
-- **작은 커밋**, **명확한 메시지**
-- **테스트는 필요할 때만** (MVP 단계에서는 생략 가능)
-
-### 개발 플로우
-
-1. **아이디어** → 바로 코딩 시작
-2. **동작하는 버전** 먼저 만들기
-3. **리팩토링**은 기능 완성 후
-4. **문서화**는 개발과 함께
-
-## 🤔 아직 결정할 것들
-
-### 🎨 디자인 관련
-
-- [ ] 색상 팔레트 (메인 컬러)
-- [ ] 아이콘 스타일 (Lucide vs Heroicons)
-- [ ] 폰트 선택
-- [ ] 메인 화면 레이아웃
-
-### 🔧 기능 관련
-
-- [ ] 다중 통화 지원 여부?
-- [ ] 카테고리 커스터마이징 범위?
-- [ ] 데이터 입력 방식 (모달 vs 인라인)?
-
-## 🚀 왜 이 구조가 바이브 코딩에 완벽한가?
-
-### ✅ 서버 없는 단순함
-
-- **NestJS 불필요**: 별도 백엔드 서버 없이 Electron에서 직접 SQLite 접근
-- **API 레이어 생략**: 프론트엔드에서 바로 DB 조작
-- **배포 간단**: 단일 실행 파일로 배포
-
-### ✅ 빠른 개발
-
-- **Zustand**: Redux보다 10배 간단한 상태 관리
-- **Shadcn/ui**: 복사-붙여넣기로 즉시 사용 가능한 컴포넌트
-- **Tailwind**: 생각하는 속도로 스타일링
-
-### ✅ 점진적 확장
-
-- **모바일 확장 용이**: React 코드 재사용 가능
-- **클라우드 마이그레이션**: 나중에 서버 추가 가능
-- **모듈화**: 컴포넌트 기반으로 기능 추가 용이
-
-## 📝 바로 시작하기
-
-```bash
-# 1. 프로젝트 생성
-npm create electron-vite@latest budget-app -- --template react-ts
-
-# 2. 의존성 설치
-cd budget-app
-npm install zustand better-sqlite3 @types/better-sqlite3
-npm install -D @types/node
-
-# 3. Tailwind CSS 설정
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-
-# 4. 개발 서버 시작
-npm run dev
-```
-
 ---
 
-_"완벽한 계획보다 시작하는 용기가 더 중요하다" - 바이브 코딩 정신_ ✨
+**🎯 지금 바로 시작하려면 [docs/GETTING_STARTED.md](./docs/GETTING_STARTED.md)를 확인하세요!**

@@ -1,0 +1,23 @@
+# Docker Compose 설정 (version 필드는 더 이상 필요하지 않음)
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: budget-app-dev
+    ports:
+      - "5173:5173" # Vite 개발 서버
+      - "9229:9229" # Node.js 디버깅
+    volumes:
+      - .:/workspace
+      - /workspace/node_modules # node_modules 캐시
+    working_dir: /workspace
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true # 파일 변경 감지 (Windows/Mac)
+    stdin_open: true
+    tty: true
+    command: bash
+
+  # SQLite는 파일 기반이므로 별도 DB 컨테이너 불필요!
