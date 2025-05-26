@@ -9,63 +9,90 @@
 - **크로스 플랫폼**: 데스크톱 → 모바일 확장 가능한 구조
 - **학습 목적**: 최신 기술 스택 실습 및 포트폴리오 구축
 
-## 🚀 기술 스택 (예정)
+## 🚀 기술 스택 (확정)
 
-### Frontend
+### 🖥️ 데스크톱 앱 (로컬 전용)
 
+- **Electron** - 크로스플랫폼 데스크톱 앱
 - **React** + **TypeScript** - 타입 안전성과 컴포넌트 기반 개발
-- **Redux Toolkit** - 상태 관리
-- **Electron** - 데스크톱 앱 패키징
+- **Zustand** - 초경량 상태 관리 (🐻 곰돌이와 함께!)
 - **Tailwind CSS** - 빠른 스타일링
+- **Shadcn/ui** - 복사-붙여넣기 방식 UI 컴포넌트
 
-### Backend
+### 🗄️ 데이터베이스 (서버 없음!)
 
-- **NestJS** - 확장 가능한 Node.js 백엔드
-- **SQLite** - 로컬 데이터베이스
-- **TypeORM** - 데이터베이스 ORM
+- **SQLite** + **better-sqlite3** - 로컬 파일 기반 DB
+- **프론트엔드에서 직접 DB 접근** - 별도 백엔드 서버 불필요!
 
-### 개발 도구
+### 🛠️ 개발 도구
 
 - **Vite** - 빠른 개발 서버
 - **ESLint + Prettier** - 코드 품질 관리
-- **Husky** - Git hooks
+- **Recharts** - React 친화적 차트 라이브러리
 
-## 📋 핵심 기능
+## 📋 핵심 기능 (세분화된 페이즈)
 
-### Phase 1 (MVP)
+### Phase 1A: 기본 구조 🏗️
 
-- [ ] 수입/지출 기록 CRUD
-- [ ] 카테고리별 분류
-- [ ] 월별 요약 통계
-- [ ] 간단한 차트 시각화
+- [ ] **지출 기록 기능** - 금액, 설명, 날짜 입력
+- [ ] **카테고리 분류** - 기본 카테고리로 지출 분류
+- [ ] **다크모드** - 테마 토글 기능
 
-### Phase 2 (확장)
+### Phase 1B: 기본 관리 📝
+
+- [ ] 지출 목록 표시
+- [ ] 지출 수정/삭제
+- [ ] 카테고리 추가/삭제
+
+### Phase 2A: 수입 관리 💰
+
+- [ ] 수입 기록 기능
+- [ ] 수입/지출 구분 표시
+- [ ] 잔액 계산
+
+### Phase 2B: 기본 통계 📊
+
+- [ ] 월별 수입/지출 합계
+- [ ] 카테고리별 지출 분석
+- [ ] 간단한 파이 차트
+
+### Phase 3A: 고급 통계 📈
+
+- [ ] 월별 트렌드 차트
+- [ ] 주간/연간 통계
+- [ ] 지출 패턴 분석
+
+### Phase 3B: 사용성 개선 ✨
+
+- [ ] 검색 및 필터링
+- [ ] 데이터 내보내기 (CSV)
+- [ ] 키보드 단축키
+
+### Phase 4: 고급 기능 🚀
 
 - [ ] 예산 설정 및 알림
-- [ ] 데이터 내보내기/가져오기
-- [ ] 영수증 사진 첨부
-- [ ] 다크모드 지원
+- [ ] 반복 거래 설정
+- [ ] 데이터 백업/복원
 
-### Phase 3 (모바일)
+### Phase 5: 모바일 확장 📱
 
 - [ ] React Native 앱
 - [ ] 데이터 동기화
 - [ ] 푸시 알림
 
-## 🏗️ 프로젝트 구조 (예정)
+## 🏗️ 프로젝트 구조 (간소화)
 
 ```
 household-budget-app/
-├── apps/
-│   ├── desktop/          # Electron 데스크톱 앱
-│   ├── mobile/           # React Native 모바일 앱 (추후)
-│   └── web/              # Next.js 웹 앱 (선택사항)
-├── packages/
-│   ├── shared/           # 공통 타입, 유틸리티
-│   ├── ui/               # 공통 UI 컴포넌트
-│   └── api/              # API 클라이언트
-├── server/               # NestJS 백엔드
-└── docs/                 # 개발 문서
+├── src/
+│   ├── components/       # React 컴포넌트
+│   ├── stores/           # Zustand 스토어
+│   ├── lib/              # 유틸리티 함수
+│   ├── types/            # TypeScript 타입
+│   └── main.tsx          # 앱 진입점
+├── electron/             # Electron 메인 프로세스
+├── public/               # 정적 파일
+└── database/             # SQLite 데이터베이스 파일
 ```
 
 ## 🎨 바이브 코딩 룰
@@ -91,36 +118,59 @@ household-budget-app/
 3. **리팩토링**은 기능 완성 후
 4. **문서화**는 개발과 함께
 
-## 🤔 결정해야 할 것들
+## 🤔 아직 결정할 것들
 
-### 기술적 결정
+### 🎨 디자인 관련
 
-- [ ] Electron vs Tauri vs PWA?
-- [ ] 상태 관리: Redux vs Zustand vs Jotai?
-- [ ] 스타일링: Tailwind vs Styled-components vs CSS Modules?
-- [ ] 차트 라이브러리: Chart.js vs Recharts vs D3?
+- [ ] 색상 팔레트 (메인 컬러)
+- [ ] 아이콘 스타일 (Lucide vs Heroicons)
+- [ ] 폰트 선택
+- [ ] 메인 화면 레이아웃
 
-### 기능적 결정
+### 🔧 기능 관련
 
-- [ ] 다중 계정 지원 여부?
 - [ ] 다중 통화 지원 여부?
-- [ ] 반복 거래 자동 입력?
 - [ ] 카테고리 커스터마이징 범위?
+- [ ] 데이터 입력 방식 (모달 vs 인라인)?
 
-### UX/UI 결정
+## 🚀 왜 이 구조가 바이브 코딩에 완벽한가?
 
-- [ ] 메인 화면 레이아웃?
-- [ ] 데이터 입력 방식 (폼 vs 인라인)?
-- [ ] 색상 테마?
-- [ ] 아이콘 스타일?
+### ✅ 서버 없는 단순함
 
-## 📝 다음 단계
+- **NestJS 불필요**: 별도 백엔드 서버 없이 Electron에서 직접 SQLite 접근
+- **API 레이어 생략**: 프론트엔드에서 바로 DB 조작
+- **배포 간단**: 단일 실행 파일로 배포
 
-1. **기술 스택 최종 결정**
-2. **프로젝트 초기 설정**
-3. **기본 UI 컴포넌트 개발**
-4. **데이터베이스 스키마 설계**
-5. **MVP 기능 구현**
+### ✅ 빠른 개발
+
+- **Zustand**: Redux보다 10배 간단한 상태 관리
+- **Shadcn/ui**: 복사-붙여넣기로 즉시 사용 가능한 컴포넌트
+- **Tailwind**: 생각하는 속도로 스타일링
+
+### ✅ 점진적 확장
+
+- **모바일 확장 용이**: React 코드 재사용 가능
+- **클라우드 마이그레이션**: 나중에 서버 추가 가능
+- **모듈화**: 컴포넌트 기반으로 기능 추가 용이
+
+## 📝 바로 시작하기
+
+```bash
+# 1. 프로젝트 생성
+npm create electron-vite@latest budget-app -- --template react-ts
+
+# 2. 의존성 설치
+cd budget-app
+npm install zustand better-sqlite3 @types/better-sqlite3
+npm install -D @types/node
+
+# 3. Tailwind CSS 설정
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+# 4. 개발 서버 시작
+npm run dev
+```
 
 ---
 
