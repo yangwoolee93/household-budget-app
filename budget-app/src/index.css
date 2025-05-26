@@ -1,49 +1,30 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  /* 커스텀 컬러 팔레트 */
-  --color-primary: #3b82f6;
-  --color-secondary: #10b981;
-  --color-accent: #f59e0b;
-  --color-danger: #ef4444;
-
-  /* 다크모드 지원을 위한 추가 컬러 */
-  --color-surface: #ffffff;
-  --color-surface-dark: #1f2937;
-  --color-text: #111827;
-  --color-text-dark: #f9fafb;
-
-  /* 커스텀 폰트 */
-  --font-display: "Inter", system-ui, sans-serif;
-}
-
-/* 다크모드 설정 */
+/* 기본 스타일 */
 @layer base {
-  :root {
-    color-scheme: light dark;
-  }
-
   html {
-    font-family: var(--font-display);
+    font-family: "Inter", system-ui, sans-serif;
   }
 
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
-    @apply transition-colors duration-300;
+    margin: 0;
+    padding: 0;
   }
 }
 
 /* 커스텀 컴포넌트 스타일 */
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors;
+    @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium;
   }
 
   .btn-secondary {
-    @apply bg-secondary text-white px-4 py-2 rounded-lg hover:bg-emerald-600 transition-colors;
+    @apply bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors font-medium;
   }
 
   .card {
-    @apply bg-surface dark:bg-surface-dark rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700;
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700;
   }
 }
