@@ -9,21 +9,48 @@ household-budget-app/
 ├── docs/                    # 📚 프로젝트 문서들
 │   ├── README.md           # 상세한 프로젝트 개요
 │   ├── GETTING_STARTED.md  # 🎯 개발 시작 가이드
+│   ├── DEVELOPMENT_LOG.md  # 📈 개발 진행 로그 (NEW!)
+│   ├── DOCKER_SETUP.md     # 🐳 도커 환경 가이드
 │   ├── VIBE_CODING_RULES.md # 바이브 코딩 원칙
 │   ├── ZUSTAND_GUIDE.md    # Zustand 사용법
 │   ├── TODO.md             # 개발 진행 상황
 │   └── TECH_STACK_DECISION.md # 기술 스택 선택 이유
-└── budget-app/             # 🚀 실제 앱 개발 폴더 (생성 예정)
+└── budget-app/             # 🚀 실제 앱 개발 폴더 ✅ 완성!
     ├── src/
+    │   ├── components/     # React 컴포넌트
+    │   ├── stores/         # Zustand 스토어
+    │   └── App.tsx         # 메인 앱
     ├── package.json
     └── ...
 ```
 
 ## 🚀 빠른 시작
 
-### 1️⃣ 문서 먼저 읽기
+### 🎉 Phase 1A 완료!
 
-**[📋 docs/GETTING_STARTED.md](./docs/GETTING_STARTED.md)** - 30분 만에 첫 번째 기능 완성!
+**Phase 1A가 이미 완성되었습니다!** 🎯  
+현재 `budget-app/` 폴더에서 완전히 작동하는 가계부 앱이 실행 중입니다.
+
+#### ✅ 완성된 기능들
+
+- 다크모드 토글
+- 지출 추가 기능 (금액, 카테고리, 설명, 날짜)
+- 실시간 통계 (총 지출, 건수)
+- 최근 지출 목록
+- 완전한 반응형 UI
+
+### 1️⃣ 현재 앱 실행하기
+
+```bash
+cd budget-app
+npm run dev:web
+# http://localhost:5173 에서 확인
+```
+
+### 2️⃣ 문서 읽기
+
+**[📋 docs/GETTING_STARTED.md](./docs/GETTING_STARTED.md)** - 개발 가이드  
+**[📈 docs/DEVELOPMENT_LOG.md](./docs/DEVELOPMENT_LOG.md)** - 진행 상황 로그
 
 ### 2️⃣ 바로 개발 시작 (도커 사용) 🐳
 
@@ -69,15 +96,16 @@ npm run dev
 
 ## 📚 주요 문서
 
-| 문서                                                       | 설명                                 |
-| ---------------------------------------------------------- | ------------------------------------ |
-| [📋 GETTING_STARTED.md](./docs/GETTING_STARTED.md)         | **지금 바로 시작하기** - 30분 가이드 |
-| [🐳 DOCKER_SETUP.md](./docs/DOCKER_SETUP.md)               | **도커 환경 설정** - 환경 통일       |
-| [📖 README.md](./docs/README.md)                           | 프로젝트 상세 개요                   |
-| [⚡ VIBE_CODING_RULES.md](./docs/VIBE_CODING_RULES.md)     | 바이브 코딩 철학과 규칙              |
-| [🐻 ZUSTAND_GUIDE.md](./docs/ZUSTAND_GUIDE.md)             | Zustand 상태 관리 가이드             |
-| [✅ TODO.md](./docs/TODO.md)                               | 개발 진행 상황 체크리스트            |
-| [🛠️ TECH_STACK_DECISION.md](./docs/TECH_STACK_DECISION.md) | 기술 스택 선택 이유                  |
+| 문서                                                       | 설명                                  |
+| ---------------------------------------------------------- | ------------------------------------- |
+| [📋 GETTING_STARTED.md](./docs/GETTING_STARTED.md)         | **개발 시작 가이드** - Phase 1A 완료! |
+| [📈 DEVELOPMENT_LOG.md](./docs/DEVELOPMENT_LOG.md)         | **개발 진행 로그** - 문제 해결 기록   |
+| [🐳 DOCKER_SETUP.md](./docs/DOCKER_SETUP.md)               | **도커 환경 설정** - 환경 통일        |
+| [📖 README.md](./docs/README.md)                           | 프로젝트 상세 개요                    |
+| [⚡ VIBE_CODING_RULES.md](./docs/VIBE_CODING_RULES.md)     | 바이브 코딩 철학과 규칙               |
+| [🐻 ZUSTAND_GUIDE.md](./docs/ZUSTAND_GUIDE.md)             | Zustand 상태 관리 가이드              |
+| [✅ TODO.md](./docs/TODO.md)                               | 개발 진행 상황 체크리스트             |
+| [🛠️ TECH_STACK_DECISION.md](./docs/TECH_STACK_DECISION.md) | 기술 스택 선택 이유                   |
 
 ## 🌟 바이브 코딩 철학
 
